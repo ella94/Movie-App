@@ -1,12 +1,13 @@
 import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/config";
 import { IMovieCard } from "@/src/components/MovieCard";
 import { getMovieCasts, getMovieDetails } from "@/src/services/movie.service";
+import CastCard, { ICastCard } from "@/src/components/CastCard";
+
 import Image from "next/image";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import CastCard, { ICastCard } from "@/src/components/CastCard";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 
@@ -85,16 +86,16 @@ const page = async ({ params }: IMovieDetails) => {
       </Paper>
       <Box sx={{ mt: 3 }}>
         <Grid container>
-          <Typography variant="h5">Top Cast</Typography>
+          <Typography variant="h5" sx={{ mb: 2 }}>
+            Top Cast
+          </Typography>
         </Grid>
         <Grid
           container
           spacing={2}
           sx={{
-            height: 420,
-            overflowX: "auto",
             display: "flex",
-            flexWrap: "nowrap",
+            height: 400,
             justifyContent: "space-evenly",
           }}
         >
@@ -102,7 +103,9 @@ const page = async ({ params }: IMovieDetails) => {
             <Grid
               item
               key={cast?.id}
-              sx={{ flex: "0 0 auto", marginBottom: 2 }}
+              sx={{
+                marginBottom: 2,
+              }}
             >
               <CastCard cast={cast} />
             </Grid>

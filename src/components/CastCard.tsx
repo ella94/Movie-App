@@ -14,7 +14,7 @@ export interface ICastCard {
 
 const CastCard = ({ cast }: { cast: ICastCard }) => {
   return (
-    <Card sx={{ maxWidth: 180 }}>
+    <Card sx={{ maxWidth: 180, height: "100%" }}>
       <CardActionArea>
         <CardMedia
           component="img"

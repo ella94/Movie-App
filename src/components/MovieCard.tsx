@@ -12,7 +12,6 @@ export interface IMovieCard {
   vote_average: number;
   release_date: string;
 }
-
 const MovieCard = ({ movie }: { movie: IMovieCard }) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -38,13 +37,13 @@ const MovieCard = ({ movie }: { movie: IMovieCard }) => {
           </Box>
           <CardMedia
             component="img"
-            height="140"
             image={
               movie?.poster_path
                 ? `${IMAGE_URL}${movie?.poster_path}`
                 : `${EMPTY_MOVIE_URL}`
             }
             alt={movie?.title}
+            sx={{ objectFit: "contain" }}
           />
           <Box
             sx={{
